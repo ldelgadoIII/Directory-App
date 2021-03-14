@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import './App.css';
+import EmployeeTable from "./EmployeeTable"
 
 class App extends Component {
   state = {
@@ -16,10 +17,11 @@ class App extends Component {
     return (
       <div>
         <h1>Employee Database</h1>
+        <EmployeeTable persons={this.state.persons}/>
         <ul>
-          {this.state.persons.map((person) => 
-           <li>
-             {person.name.first}
+          {this.state.persons.map((person, index) => 
+           <li key={index}>
+             {`First Name: ${person.name.first}`}
            </li> 
           )}
         </ul>
