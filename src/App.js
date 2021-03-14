@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import './App.css';
 import EmployeeTable from "./components/EmployeeTable"
+import Header from "./components/Header"
 
 class App extends Component {
   state = {
@@ -20,9 +21,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Employee Database</h1>
-        <h2>Search Bar</h2>
+      <div className="container">
+        <Header />
         <EmployeeTable>
           {this.state.persons.map((person, index) => {
             return (
