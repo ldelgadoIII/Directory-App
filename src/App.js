@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import './App.css';
 import EmployeeTable from "./components/EmployeeTable"
+import EmployeeCard from "./components/EmployeeCard"
 import Header from "./components/Header"
 
 class App extends Component {
@@ -26,14 +27,15 @@ class App extends Component {
         <EmployeeTable>
           {this.state.persons.map((person, index) => {
             return (
-              <tr key={index}>
-                <th scope="row"><img src={person.picture.thumbnail} alt="thumbnail"/></th>
-                <td>{person.name.first}</td>
-                <td>{person.name.last}</td>
-                <td>{person.phone}</td>
-                <td>{person.email}</td>
-                <td>{person.dob.date}</td>
-              </tr> 
+              <EmployeeCard 
+                id={index} 
+                image={person.picture.thumbnail}
+                first={person.name.first}
+                last={person.name.last}
+                phone={person.phone}
+                email={person.email}
+                dob={person.dob.date}
+                />
             )} 
           )}
         </EmployeeTable>      
