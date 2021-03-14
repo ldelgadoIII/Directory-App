@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import './App.css';
-import EmployeeTable from "./EmployeeTable"
+import EmployeeTable from "./components/EmployeeTable"
 
 class App extends Component {
   state = {
@@ -9,22 +9,34 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get("https://randomuser.me/api/?results=10")
-      .then(res => this.setState({persons: res.data.results}))
+    this.getEmployees();
+  }
+
+  getEmployees = async () => {
+    const { data } = await axios.get("https://randomuser.me/api/?results=10")
+  
+    this.setState({ persons: data.results })
   }
 
   render() {
     return (
       <div>
         <h1>Employee Database</h1>
-        <EmployeeTable persons={this.state.persons}/>
-        <ul>
-          {this.state.persons.map((person, index) => 
-           <li key={index}>
-             {`First Name: ${person.name.first}`}
-           </li> 
+        <h2>Search Bar</h2>
+        <EmployeeTable>
+          {this.state.persons.map((person, index) => {
+            return (
+              <tr key={index}>
+                <th scope="row"><img src={person.picture.thumbnail} alt="thumbnail"/></th>
+                <td>{person.name.first}</td>
+                <td>{person.name.last}</td>
+                <td>{person.phone}</td>
+                <td>{person.email}</td>
+                <td>{person.dob.date}</td>
+              </tr> 
+            )} 
           )}
-        </ul>
+        </EmployeeTable>      
         {console.log(this.state.persons)}
       </div>
     )
