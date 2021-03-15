@@ -4,10 +4,12 @@ import './App.css';
 import EmployeeTable from "./components/EmployeeTable"
 import EmployeeCard from "./components/EmployeeCard"
 import Header from "./components/Header"
+// import SearchBar from "./components/SearchBar"
 
 class App extends Component {
   state = {
-    persons: []
+    persons: [],
+    search: null
   }
 
   componentDidMount() {
@@ -20,10 +22,18 @@ class App extends Component {
     this.setState({ persons: data.results })
   }
 
+  searchEmployee(search) {
+    console.log(this.state.persons.filter( person => person.name.first.includes(search) || person.name.last.includes(search)))
+    // this.setState({ persons: this.state.persons.filter(person => person.name.first.include(this.state.search) || person.name.last.include(this.state.search) )})
+    // this.setState({search: search})
+    // console.log(this.state.search)
+  }
+
   render() {
     return (
       <div className="container">
         <Header />
+        <input class="form-control form-control-lg" type="text" placeholder="search" onChange={(e) => this.searchEmployee(e.target.value)}></input> 
         <EmployeeTable>
           {this.state.persons.map((person, index) => {
             return (

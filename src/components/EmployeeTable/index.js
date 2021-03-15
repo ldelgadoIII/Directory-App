@@ -1,8 +1,6 @@
 const EmployeeTable = ({ children }) => {
     return (
       <>
-        <input class="form-control form-control-lg" type="text" placeholder="search"></input>
-        <br/>
         <table class="table">
           <thead>
             <tr>
