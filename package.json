@@ -1,5 +1,6 @@
 {
   "name": "employee-directory",
+  "homepage" : "https://ldelgadoiii.github.io/Employee-Directory",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

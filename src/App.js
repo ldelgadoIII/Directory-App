@@ -80,7 +80,6 @@ class App extends Component {
       <div className="container">
         <Header />
         <SearchBar search={this.searchEmployee}/>
-        {/* <input class="form-control form-control-lg" type="text" placeholder="search" onChange={(e) => this.searchEmployee(e.target.value)}></input>  */}
         <EmployeeTable 
           byFirst={ this.state.orderFirstName ? this.organizeByFirst : this.reverseByFirst } 
           byLast={this.state.orderLastName? this.organizeByLast : this.reverseByLast}
