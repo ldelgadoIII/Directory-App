@@ -1,0 +1,15 @@
+.jumbotron {
+    background: chocolate;
+}
+
+h1 {
+    color: white;
+}
+
+.form-control {
+    margin-bottom: 30px;
+}
+
+i {
+    margin-right: 5px;
+}

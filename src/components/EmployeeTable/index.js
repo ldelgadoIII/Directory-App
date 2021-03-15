@@ -1,3 +1,5 @@
+import "./style.css"
+
 const EmployeeTable = ({ children, byFirst, byLast, stateFirst, stateLast }) => {
     return (
       <>

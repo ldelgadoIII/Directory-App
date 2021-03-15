@@ -3,7 +3,7 @@ import axios from "axios";
 import EmployeeTable from "./components/EmployeeTable"
 import EmployeeCard from "./components/EmployeeCard"
 import Header from "./components/Header"
-// import SearchBar from "./components/SearchBar"
+import SearchBar from "./components/SearchBar"
 
 class App extends Component {
   state = {
@@ -79,7 +79,8 @@ class App extends Component {
     return (
       <div className="container">
         <Header />
-        <input class="form-control form-control-lg" type="text" placeholder="search" onChange={(e) => this.searchEmployee(e.target.value)}></input> 
+        <SearchBar search={this.searchEmployee}/>
+        {/* <input class="form-control form-control-lg" type="text" placeholder="search" onChange={(e) => this.searchEmployee(e.target.value)}></input>  */}
         <EmployeeTable 
           byFirst={ this.state.orderFirstName ? this.organizeByFirst : this.reverseByFirst } 
           byLast={this.state.orderLastName? this.organizeByLast : this.reverseByLast}

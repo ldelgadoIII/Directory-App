@@ -1,3 +1,5 @@
+import "./style.css"
+
 const EmployeeCard = ({ id, image, first, last, phone, email, dob }) => {
     return (
         <tr key={id}>
