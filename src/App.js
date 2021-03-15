@@ -17,16 +17,13 @@ class App extends Component {
   }
 
   getEmployees = async () => {
-    const { data } = await axios.get("https://randomuser.me/api/?results=10")
+    const { data } = await axios.get("https://randomuser.me/api/?results=25")
   
     this.setState({ persons: data.results })
   }
 
   searchEmployee(search) {
-    console.log(this.state.persons.filter( person => person.name.first.includes(search) || person.name.last.includes(search)))
-    // this.setState({ persons: this.state.persons.filter(person => person.name.first.include(this.state.search) || person.name.last.include(this.state.search) )})
-    // this.setState({search: search})
-    // console.log(this.state.search)
+    this.setState({ search: this.state.persons.filter( person => person.name.first.includes(search) || person.name.last.includes(search)) })
   }
 
   render() {
@@ -35,21 +32,16 @@ class App extends Component {
         <Header />
         <input class="form-control form-control-lg" type="text" placeholder="search" onChange={(e) => this.searchEmployee(e.target.value)}></input> 
         <EmployeeTable>
-          {this.state.persons.map((person, index) => {
+          {this.state.search ? this.state.search.map((person, index) => {
             return (
-              <EmployeeCard 
-                id={index} 
-                image={person.picture.thumbnail}
-                first={person.name.first}
-                last={person.name.last}
-                phone={person.phone}
-                email={person.email}
-                dob={person.dob.date}
-                />
+              <EmployeeCard id={index} image={person.picture.thumbnail} first={person.name.first} last={person.name.last} phone={person.phone} email={person.email} dob={person.dob.date} />
+            )} 
+          ) : this.state.persons.map((person, index) => {
+            return (
+              <EmployeeCard id={index} image={person.picture.thumbnail} first={person.name.first} last={person.name.last} phone={person.phone} email={person.email} dob={person.dob.date} />
             )} 
           )}
         </EmployeeTable>      
-        {console.log(this.state.persons)}
       </div>
     )
   }
