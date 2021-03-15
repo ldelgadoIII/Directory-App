@@ -82,7 +82,10 @@ class App extends Component {
         <input class="form-control form-control-lg" type="text" placeholder="search" onChange={(e) => this.searchEmployee(e.target.value)}></input> 
         <EmployeeTable 
           byFirst={ this.state.orderFirstName ? this.organizeByFirst : this.reverseByFirst } 
-          byLast={this.state.orderLastName? this.organizeByLast : this.reverseByLast}>
+          byLast={this.state.orderLastName? this.organizeByLast : this.reverseByLast}
+          stateFirst={this.state.orderFirstName}
+          stateLast={this.state.orderLastName}
+          >
             {this.state.search ? this.state.search.map((person, index) => {
               return (
                 <EmployeeCard id={index} image={person.picture.thumbnail} first={person.name.first} last={person.name.last} phone={person.phone} email={person.email} dob={person.dob.date} />
