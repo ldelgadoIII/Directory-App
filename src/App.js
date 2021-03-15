@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   searchEmployee(search) {
-    this.setState({ search: this.state.persons.filter( person => person.name.first.includes(search) || person.name.last.includes(search)) })
+    this.setState({ search: this.state.persons.filter( person => person.name.first.toLowerCase().includes(search) || person.name.last.toLowerCase().includes(search)) })
   }
 
   render() {
