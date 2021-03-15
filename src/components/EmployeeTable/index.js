@@ -1,11 +1,11 @@
-const EmployeeTable = ({ children }) => {
+const EmployeeTable = ({ children, byFirst }) => {
     return (
       <>
         <table class="table">
           <thead>
             <tr>
               <th scope="col">Image</th>
-              <th scope="col">First Name<i class="bi bi-caret-down-fill"></i></th>
+              <th scope="col">First Name<i class="bi bi-caret-down-fill" onClick={byFirst}></i></th>
               <th scope="col">Last Name<i class="bi bi-caret-down-fill"></i></th>
               <th scope="col">Phone</th>
               <th scope="col">Email</th>
