@@ -88,11 +88,11 @@ class App extends Component {
           >
             {this.state.search ? this.state.search.map((person, index) => {
               return (
-                <EmployeeCard id={index} image={person.picture.thumbnail} first={person.name.first} last={person.name.last} phone={person.phone} email={person.email} dob={person.dob.date} />
+                <EmployeeCard id={index} image={person.picture.thumbnail} first={person.name.first} last={person.name.last} phone={person.phone} email={person.email} dob={person.dob.date.substring(0,10)} />
               )} 
             ) : this.state.persons.map((person, index) => {
               return (
-                <EmployeeCard id={index} image={person.picture.thumbnail} first={person.name.first} last={person.name.last} phone={person.phone} email={person.email} dob={person.dob.date} />
+                <EmployeeCard id={index} image={person.picture.thumbnail} first={person.name.first} last={person.name.last} phone={person.phone} email={person.email} dob={person.dob.date.substring(0,10)} />
               )} 
             )}
         </EmployeeTable>
