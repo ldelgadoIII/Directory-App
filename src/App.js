@@ -18,9 +18,9 @@ class App extends Component {
   }
 
   getEmployees = async () => {
-    const { data } = await axios.get("https://randomuser.me/api/?results=25")
+    const { data: { results: persons } } = await axios.get("https://randomuser.me/api/?results=25")
   
-    this.setState({ persons: data.results })
+    this.setState({ persons })
   }
 
   searchEmployee = (search) => {
